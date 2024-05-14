@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+.app-container {
+  background-color: rgb(245, 245, 198);
+  width: 70%;
+  padding: 20px;
+}
+
+.job-item-container {
+  background-color: silver;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 100px;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6px;
+  justify-content: space-evenly;
+}
+
+.job-title {
+  font-weight: 900;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.job-title:hover{
+  text-decoration: underline;
+}
+
+.inactiveLink{
+  pointer-events: none;
+}
