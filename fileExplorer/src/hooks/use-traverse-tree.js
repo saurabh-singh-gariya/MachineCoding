@@ -18,17 +18,14 @@ const useTraverseTree = () => {
     return { ...node, items: tempItems };
   };
   const deleteNode = (id, node) => {
+    if (!node) return null;
     if (id === node.id) return null;
 
-    let tempArray = [];
-    for (let i = 0; i < node.items.length; i++) {
-      const temp = deleteNode(id, node.items[i]);
-      if (!temp) {
-        return {...node, items: node.items.filter((item)=> item.id !== node.items[i].id)}
-      }
-      tempArray.push(temp);
-    }
-    return { ...node, items: tempArray };
+    const newItems = node.items
+      .map((childNode) => deleteNode(id, childNode))
+      .filter(Boolean);
+
+    return { ...node, items: newItems };
   };
   return { insertNode, deleteNode };
 };
